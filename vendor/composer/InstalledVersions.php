@@ -27,12 +27,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'v8.5.20',
-    'version' => '8.5.20.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '3cb203fcad5e56eb4db946fd50eb816b2e10ffca',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -68,6 +68,42 @@ private static $installed = array (
       array (
         0 => '*',
       ),
+    ),
+    'doctrine/cache' => 
+    array (
+      'pretty_version' => '2.0.3',
+      'version' => '2.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c9622c6820d3ede1e2315a6a377ea1076e421d88',
+    ),
+    'doctrine/dbal' => 
+    array (
+      'pretty_version' => '2.13.2',
+      'version' => '2.13.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8dd39d2ead4409ce652fd4f02621060f009ea5e4',
+    ),
+    'doctrine/deprecations' => 
+    array (
+      'pretty_version' => 'v0.5.3',
+      'version' => '0.5.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9504165960a1f83cc1480e2be1dd0a0478561314',
+    ),
+    'doctrine/event-manager' => 
+    array (
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '41370af6a30faa9dc0368c4a6814d596e81aba7f',
     ),
     'doctrine/inflector' => 
     array (
@@ -113,6 +149,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
+    ),
+    'encore/laravel-admin' => 
+    array (
+      'pretty_version' => 'v2.0.0-beta5',
+      'version' => '2.0.0.0-beta5',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6f8c81bb46ea698cfb76c06166d74519c0a98217',
     ),
     'facade/flare-client-php' => 
     array (
@@ -457,12 +502,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'v8.5.20',
-      'version' => '8.5.20.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '3cb203fcad5e56eb4db946fd50eb816b2e10ffca',
     ),
     'laravel/sail' => 
     array (
@@ -777,8 +822,8 @@ private static $installed = array (
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '1.0.0',
+        0 => '1.0.0',
+        1 => '1.0',
       ),
     ),
     'psr/simple-cache' => 
@@ -1012,6 +1057,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '5f38c8804a9e97d23e0c8d63341088cd8a22d627',
+    ),
+    'symfony/dom-crawler' => 
+    array (
+      'pretty_version' => 'v5.3.0',
+      'version' => '5.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '55fff62b19f413f897a752488ade1bc9c8a19cdd',
     ),
     'symfony/error-handler' => 
     array (
@@ -1469,9 +1523,23 @@ return $installed[0]['root'];
 
 
 
+
 public static function getRawData()
 {
+@trigger_error('getRawData only returns the first dataset loaded, which may not be what you expect. Use getAllRawData() instead which returns all datasets for all autoloaders present in the process.', E_USER_DEPRECATED);
+
 return self::$installed;
+}
+
+
+
+
+
+
+
+public static function getAllRawData()
+{
+return self::getInstalled();
 }
 
 
