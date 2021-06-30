@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('nantihapus');
+    return view('csm1');
+});
+Route::get('/csm2', function () {
+    return view('csm2');
+});
+Route::get('/csm1', function () {
+    return view('csm1');
+});
+
+Route::get('/csm3', function () {
+    return view('csm3');
 });

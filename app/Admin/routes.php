@@ -12,6 +12,6 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-    $router->resource('sampel_-i-o-ts', IOTController::class);
+    $router->resource('/dataall', IOTController::class);
 
 });
