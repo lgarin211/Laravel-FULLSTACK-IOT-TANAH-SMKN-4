@@ -344,11 +344,11 @@
         }).then((response) => response.json()).then((data) => {
 
             function addData(chart = myChart, label, data) {
-                console.log('point=' + data);
+                // console.log('point=' + data);
                 chart.data.labels.push(label);
                 chart.data.datasets.forEach((dataset) => {
                     dataset.data.push(data);
-                    if (data > document.getElementById('misl').value) {
+                    if (data > document.getElementById('colosalnumberset').value) {
                         dataset.backgroundColor.push('#3bff00')
                     } else {
                         dataset.backgroundColor.push('red')
@@ -367,12 +367,12 @@
                 //     console.log('nol');
                 // } else {
                 let ban = poin[index]
-                console.log(poin);
+                // console.log(poin);
                 poinlast = ban.id - 1
-                console.log('cli');
+                // console.log('cli');
                 // valuedatahistory[ban.id] = ban.data_soil
                 // timedatahistory[ban.id] = ban.updated_at
-                console.log(ban.updated_at, 'as', ban.data_soil);
+                // console.log(ban.updated_at, 'as', ban.data_soil);
                 // addData(myChart, ban.updated_at, ban.data_soil)
                 // setTimeout(() => {
                 //     addData(myChart, ban.updated_at, ban.data_soil)
@@ -394,7 +394,7 @@
             const tombol = document.getElementsByClassName('loading')[0]
             var areaData = []
             setInterval(() => {
-                console.log(das);
+                // console.log(das);
                 const patokan = document.getElementById('misl').value
                 if (a == 0) {
                     // console.log(das[i], 'vs', patokan);
@@ -421,7 +421,7 @@
                 // current.getHours();
                 // current.getMinutes();
 
-                document.getElementById('temp').value = das[i]
+                // document.getElementById('temp').value = das[i]
                 // addData(myChart, (timedatahistory[i]), das[i])
 
                 // if (i < 6) {
@@ -434,7 +434,7 @@
 
             }, 5000);
 
-            console.log(banlasttime, 'm', banlast);
+            // console.log(banlasttime, 'm', banlast);
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
@@ -477,19 +477,20 @@
                                 for (let index = 0; index < pasn.length; index++) {
                                     let ban = pasn[index]
                                     poinlast = ban.id
+                                    document.getElementById('misl').value = ban.data_soil
                                     // valuedatahistory[ban.id] = ban.data_soil
                                     // timedatahistory[ban.id] = ban.updated_at
                                     addData(myChart, ban.updated_at, ban.data_soil)
                                     if (ban.data_soil >= patokan) {
                                         if (pas == 0) {
                                             tombol.click()
-                                            console.log('1')
+                                            // console.log('1')
                                             pas = 1
                                         }
                                     } else {
                                         if (ban.data_soil <= patokan) {
                                             if (pas == 1) {
-                                                console.log('0')
+                                                // console.log('0')
                                                 tombol.click()
                                                 pas = 0
                                             }
@@ -523,6 +524,31 @@
             let pasi = document.getElementById('colosalnumberset').value
             document.getElementById('misl').value = pasi
         }
+
+        function damos(mall = "OFF") {
+            console.log('kirimkan')
+            fetch(`{{url('/')}}/api/getbtnstatus?ban=` + mall, {
+                    method: 'GET',
+                }).then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    console.log('terkirim')
+                });
+        }
+
+        function tombol_merah() {
+            var tmb = document.getElementById("tombol");
+            if (tmb.checked) {
+                console.log('dinyalakan');
+                damos('ON')
+                // fetch("http://172.16.12.186/PUPUK=ON").then((response) => response.json());
+            } else {
+                console.log('dimatikan');
+                // fetch("http://172.16.12.186/PUPUK=OFF").then((response) => response.json());
+                damos('OFF')
+            }
+        }
+        damos('OFF')
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>

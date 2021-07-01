@@ -521,16 +521,4 @@
     });
     uu
 </script>
-<script>
-    function tombol_merah() {
-        var tmb = document.getElementById("tombol");
-        if(tmb.checked){
-            console.log('dinyalakan');
-            fetch("http://172.16.12.186/PUPUK=ON").then((response) => response.json());
-        }else{
-            console.log('dimatikan');
-            fetch("http://172.16.12.186/PUPUK=OFF").then((response) => response.json());
-        }
-    }
-</script>
 @endsection

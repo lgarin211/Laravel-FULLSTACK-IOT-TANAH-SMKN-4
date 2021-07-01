@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SampelIOTController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,17 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [SampelIOTController::class, 'csm1'])->name('index');
+Route::get('/csm1', [SampelIOTController::class, 'csm1'])->name('csm1');
 
-Route::get('/', function () {
-    return view('csm1');
-});
-Route::get('/csm2', function () {
-    return view('csm2');
-});
-Route::get('/csm1', function () {
-    return view('csm1');
-});
+Route::get('/csm2', [SampelIOTController::class, 'csm2'])->name('csm2');
 
-Route::get('/csm3', function () {
-    return view('csm3');
-});
+Route::get('/csm3', [SampelIOTController::class, 'csm3'])->name('csm3');
