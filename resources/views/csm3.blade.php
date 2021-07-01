@@ -359,7 +359,7 @@
                             </style>
                             <div class="col-md-12" id='asw'>
                                 <label>
-                                    <input class="pristine" type="checkbox" name="switch" value="on">
+                                    <input class="pristine" type="checkbox" name="switch" onclick="tombol_merah()" value="on" id="tombol">
                                 </label>
                             </div>
                         </div>
@@ -520,5 +520,17 @@
             });
     });
     uu
+</script>
+<script>
+    function tombol_merah() {
+        var tmb = document.getElementById("tombol");
+        if(tmb.checked){
+            console.log('dinyalakan');
+            fetch("http://172.16.12.186/PUPUK=ON").then((response) => response.json());
+        }else{
+            console.log('dimatikan');
+            fetch("http://172.16.12.186/PUPUK=OFF").then((response) => response.json());
+        }
+    }
 </script>
 @endsection
