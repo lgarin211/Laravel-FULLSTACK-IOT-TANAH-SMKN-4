@@ -21,4 +21,5 @@ use App\Http\Controllers\SampelIOTController;
 Route::get('/getall', [SampelIOTController::class, 'getall'])->name('getall');
 Route::get('/getupdate', [SampelIOTController::class, 'getupdate'])->name('getupdate');
 Route::get('/getsave', [SampelIOTController::class, 'getsave'])->name('getsave');
-
+Route::get('/getbtnstatus', [SampelIOTController::class, 'btnstatus'])->name('btnstatus');
+Route::get('/getAIRROLE', [SampelIOTController::class, 'AIRROLE'])->name('AIRROLE');

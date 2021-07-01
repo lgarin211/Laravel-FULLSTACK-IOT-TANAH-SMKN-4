@@ -10,10 +10,15 @@ class SampelIOTController extends Controller
     public function getall()
     {
         $alldata = DB::table('sampel__i_o_t_s')->get();
-        return \response()->json(
-            [
+        $set=$alldata;
+        // foreach ($alldata as $key => $value) {
+        //     $set=$value;
+        // }
+        // $alldata =array_reverse($alldata);
+
+        return \response()->json([
                 "massage" => 'Data Di Dapatkan',
-                "data" => $alldata
+                "data" => $set,
             ]
         );
     }
@@ -27,6 +32,35 @@ class SampelIOTController extends Controller
             ]
         );
     }
+    public function btnstatus()
+    {
+        $alldata = DB::table('GENERAL')->where('name', '=', 'btnstatus')->first();
+        return \response()->json(
+            [
+                "status" => $alldata->value
+            ]
+        );
+    }
+    public function AIRROLE()
+    {
+        $alldata = DB::table('GENERAL')->where('name', '=', 'airrole')->first();
+        return \response()->json(
+            [
+                "status" => $alldata->value
+            ]
+        );
+    }
+
+    //  public function AIRROLE()
+    // {
+    //     $alldata = DB::table('GENERAL')->where('name', '>', 'roleair')->firs();
+    //     return \response()->json(
+    //         [
+    //             "status" => $alldata->value
+    //         ]
+    //     );
+    // }
+
     public function getsave()
     {
         $alldata =
