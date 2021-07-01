@@ -19,6 +19,7 @@ use App\Http\Controllers\SampelIOTController;
 //     return $request->user();
 // });
 Route::get('/getall', [SampelIOTController::class, 'getall'])->name('getall');
+Route::get('/one', [SampelIOTController::class, 'one'])->name('one');
 Route::get('/getupdate', [SampelIOTController::class, 'getupdate'])->name('getupdate');
 Route::get('/getsave', [SampelIOTController::class, 'getsave'])->name('getsave');
 Route::get('/getbtnstatus', [SampelIOTController::class, 'btnstatus'])->name('btnstatus');

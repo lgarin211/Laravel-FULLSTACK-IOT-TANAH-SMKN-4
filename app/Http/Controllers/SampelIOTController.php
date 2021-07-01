@@ -46,6 +46,17 @@ class SampelIOTController extends Controller
             );
 
     }
+    public function one()
+    {
+
+            $alldata = DB::table('GENERAL')->where('name', '=', 'numa')->first();
+            return \response()->json(
+                [
+                    "status" => $alldata->value
+                ]
+            );
+
+    }
     public function AIRROLE()
     {
         if (!empty($_GET['ban'])) {
@@ -80,6 +91,10 @@ class SampelIOTController extends Controller
                 'created_at' => date("Y/m/d H:i:s"),
                 'updated_at' => date("Y/m/d H:i:s"),
             ]);
+          $affected = DB::table('GENERAL')
+                ->where('name', '=', 'numa')
+                ->update(['value' => $_GET['datapoin']]);
+
         return \response()->json(
             [
                 "massage" => 'Data Tersimpan',
@@ -90,17 +105,20 @@ class SampelIOTController extends Controller
     public function csm2()
     {
         $data = DB::table('GENERAL')->where('name', '=', 'roleair')->first();
-        dump($data);
+        // dump($data);
         return view('csm2', compact('data'));
     }
     public function csm1()
     {
-        $data = DB::table('GENERAL')->where('name', '=', 'btnstatus')->first();
-        return view('csm1', compact('data'));
+        return view('csm1');
+    }
+     public function in()
+    {
+        // $data = DB::table('GENERAL')->where('name', '=', 'btnstatus')->first();
+        return view('fri');
     }
      public function csm3()
     {
-        $data = DB::table('GENERAL')->where('name', '=', 'btnstatus')->first();
-        return view('csm3', compact('data'));
+        return view('csm3');
     }
 }

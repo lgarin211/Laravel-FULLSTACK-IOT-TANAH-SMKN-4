@@ -1,4 +1,4 @@
-@extends('./Composenen/ping')
+@extends('/Composenen/ping')
 @section('isi')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="min-height: 2163.62px;">
@@ -113,4 +113,3 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
-  

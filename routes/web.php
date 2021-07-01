@@ -13,7 +13,7 @@ use App\Http\Controllers\SampelIOTController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [SampelIOTController::class, 'csm1'])->name('index');
+Route::get('/', [SampelIOTController::class, 'in'])->name('index');
 Route::get('/csm1', [SampelIOTController::class, 'csm1'])->name('csm1');
 
 Route::get('/csm2', [SampelIOTController::class, 'csm2'])->name('csm2');
